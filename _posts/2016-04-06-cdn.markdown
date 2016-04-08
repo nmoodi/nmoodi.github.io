@@ -1,0 +1,65 @@
+---
+layout: post
+title:  "روش جایگزین (استفاده از یک cdn)"
+
+date:   2016-04-06 21:45:15 +0430
+categories: jekyll update
+---
+
+چنانچه مایل به دانلود و میزبانی کتابخانه ی jQuery نیستید، در آن صورت می توانید آن را از یک CDN
+بگیرید.
+
+Microsaftو Google هر دو jQuery را host می کنند(نقش سرور میزبان را برای کتابخانه ی ذکر شده ایفا میکنند)<br>
+در این روش شما لینک دسترسی به فایل کتابخانه jQuery ، که بروی سرور مورد نظرتان مستقر است را
+در یک تگ > Script < و در بخش < < Head صفحه ی HTML جای گذاری می نمایید. در این حالت
+صفحه در حین بارگذاری شدن، به سرویس دهنده متصل شده و از کتابخانه ی آنلاین بهره می گیرد.<br>
+<b>Google CDN</b>
+{% raw %}
+    <!DOCTYPE html>
+	<html>
+	<head>
+	<title>Tahlildadeh</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script>
+	$(document).ready(function () { 
+	$("button").click(function () {
+	$("p").hide();
+	});
+	});
+	</script> 
+	</head>
+	<body>
+	<h2>This is a heading</h2>
+	<p>This is a paragraph.</p> 
+	<p>This is another paragraph.</p>
+	<button>Click me</button>
+	</body>
+	</html>
+    {% endraw %}
+	
+	
+<b>	Microsaft cdn<b>
+	
+	{% raw %}
+    <!DOCTYPE html>
+	<html>
+	<head>
+	<title>tahlildadeh</title>
+	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js"> </script> 
+	<script> 
+	$(document).ready(function () {
+	$("button").click(function () {
+	$("p").hide();
+	});
+	});
+	</script>
+	</head> 
+	<body>
+	<h2>This is a heading</h2>
+	<p>This is a paragraph.</p>
+	<p>This is another paragraph.</p> 
+	<button>Click me</button> 
+	</body> 
+	</html>
+    {% endraw %}
+	
